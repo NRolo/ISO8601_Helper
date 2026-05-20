@@ -5,7 +5,7 @@ VisualStudioVersion = 17.6.33712.159
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ISO8601_Helper", "ISO8601_Helper\ISO8601_Helper.csproj", "{862F1600-E98E-4FA5-9CA9-A79BBD9D3A7D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISO8601_Helper.UnitTests", "..\ISO8601_Helper.UnitTests\ISO8601_Helper.UnitTests.csproj", "{E2BD08BE-5D60-4997-8F50-6932FF6C3B84}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISO8601_Helper.UnitTests", "ISO8601_Helper.UnitTests\ISO8601_Helper.UnitTests.csproj", "{E2BD08BE-5D60-4997-8F50-6932FF6C3B84}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

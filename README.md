@@ -33,7 +33,7 @@ ISO8601_Helper/
 
 ## Requirements
 
-- [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
+- [.NET 10.0 SDK](https://dotnet.microsoft.com/download/dotnet/10.0)
 - [OutSystems.ExternalLibraries.SDK](https://www.nuget.org/packages/OutSystems.ExternalLibraries.SDK) 1.3.2
 
 ## Build

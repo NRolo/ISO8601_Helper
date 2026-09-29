@@ -186,5 +186,42 @@ var text = helper.ISO8601_FormatDateTime(date);
       </div>
     </main>
   </div>
+  <script>
+    const navigationLinks = [...document.querySelectorAll(".section-nav a")];
+    const navigationSections = navigationLinks
+      .map((link) => document.querySelector(link.getAttribute("href")))
+      .filter(Boolean);
+
+    let updateScheduled = false;
+    const updateCurrentSection = () => {
+      const activationLine = window.innerHeight * 0.32;
+      let currentSection = navigationSections[0];
+
+      for (const section of navigationSections) {
+        if (section.getBoundingClientRect().top > activationLine) break;
+        currentSection = section;
+      }
+
+      navigationLinks.forEach((link) => {
+        if (link.hash === `#${currentSection.id}`) {
+          link.setAttribute("aria-current", "location");
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
+      updateScheduled = false;
+    };
+
+    const scheduleCurrentSectionUpdate = () => {
+      if (updateScheduled) return;
+      updateScheduled = true;
+      window.requestAnimationFrame(updateCurrentSection);
+    };
+
+    window.addEventListener("scroll", scheduleCurrentSectionUpdate, { passive: true });
+    window.addEventListener("resize", scheduleCurrentSectionUpdate);
+    window.addEventListener("hashchange", scheduleCurrentSectionUpdate);
+    updateCurrentSection();
+  </script>
 </body>
 </html>

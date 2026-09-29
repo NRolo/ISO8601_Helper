@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#153d34">
+  <meta name="description" content="Documentation for ISO8601 Helper, an OutSystems Developer Cloud external library for ISO week and date-time utilities.">
+  <title>ISO8601 Helper | ODC Documentation</title>
+  <link rel="icon" href="assets/ISO8601.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar" aria-label="Documentation navigation">
+      <a class="brand" href="#top">
+        <img src="assets/ISO8601.png" alt="ISO8601 Helper logo" width="44" height="44">
+        <span class="brand-copy"><strong>ISO8601</strong><span>HELPER / ODC</span></span>
+      </a>
+
+      <div class="nav-label">DOCUMENTATION</div>
+      <nav class="section-nav">
+        <a href="#overview" aria-current="location"><span class="nav-index">01</span>Overview</a>
+        <a href="#actions"><span class="nav-index">02</span>Server actions</a>
+        <a href="#week-rules"><span class="nav-index">03</span>ISO week rules</a>
+        <a href="#quick-start"><span class="nav-index">04</span>Build and test</a>
+        <a href="#publish"><span class="nav-index">05</span>Publish to ODC</a>
+      </nav>
+
+      <div class="sidebar-note">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span>External library<br><strong>OutSystems Developer Cloud</strong></span>
+      </div>
+    </aside>
+
+    <main id="top" class="content">
+      <header class="topbar">
+        <span>ISO8601 Helper</span>
+        <span class="topbar-tag">REFERENCE GUIDE <span aria-hidden="true">/</span> 1.0</span>
+      </header>
+
+      <div class="document">
+        <section id="overview" class="intro" aria-labelledby="page-title">
+          <div class="intro-copy">
+            <p class="eyebrow"><span class="eyebrow-mark" aria-hidden="true"></span>OUTSYSTEMS DEVELOPER CLOUD</p>
+            <h1 id="page-title">ISO8601 Helper</h1>
+            <p class="intro-lede">Reliable date-time formatting and ISO week utilities, exposed as server actions for your ODC apps and libraries.</p>
+            <div class="intro-facts" aria-label="Library details">
+              <span><strong>04</strong> server actions</span>
+              <span><strong>10</strong> .NET target</span>
+              <span><strong>1.3.2</strong> ODC SDK</span>
+            </div>
+          </div>
+          <div class="intro-art" aria-hidden="true">
+            <div class="art-orbit art-orbit-one"></div>
+            <div class="art-orbit art-orbit-two"></div>
+            <div class="art-date"><span>ISO WEEK</span><strong>W<span>53</span></strong><small>MON → SUN</small></div>
+            <span class="art-stamp">DATE<br>TIME</span>
+          </div>
+        </section>
+
+        <section class="section-block overview-block" aria-labelledby="what-title">
+          <div class="section-heading">
+            <span class="section-number">01</span>
+            <div><p class="section-kicker">THE LIBRARY</p><h2 id="what-title">Date handling, with ISO rules built in.</h2></div>
+          </div>
+          <div class="overview-copy">
+            <p>ISO8601 Helper wraps common calendar operations behind native ODC server actions. Format a value as a UTC ISO 8601 timestamp, find its ISO week number, or translate an ISO year and week into the Monday that starts it.</p>
+            <p>ISO week years do not always match calendar years. For example, January 1, 2021 falls in week 53 of the preceding ISO week-year.</p>
+          </div>
+          <a class="text-link" href="#actions">Explore the action reference <span aria-hidden="true">→</span></a>
+        </section>
+
+        <section id="actions" class="section-block" aria-labelledby="actions-title">
+          <div class="section-heading">
+            <span class="section-number">02</span>
+            <div><p class="section-kicker">ACTION REFERENCE</p><h2 id="actions-title">Four focused server actions.</h2></div>
+          </div>
+
+          <div class="action-grid">
+            <article class="action-item">
+              <div class="action-topline"><span class="action-type">FORMAT</span><span class="action-return">Text</span></div>
+              <h3>ISO8601_FormatDateTime</h3>
+              <code class="signature">ISO8601_FormatDateTime(DateTime value)</code>
+              <p>Converts the input to UTC and formats it as <code>yyyy-MM-ddTHH:mm:ssZ</code>.</p>
+              <dl class="io-list"><div><dt>Input</dt><dd><code>value</code> · DateTime</dd></div><div><dt>Output</dt><dd><code>FormatedDateTime</code> · Text</dd></div></dl>
+            </article>
+
+            <article class="action-item">
+              <div class="action-topline"><span class="action-type">WEEK COUNT</span><span class="action-return">Integer</span></div>
+              <h3>ISO8601_GetWeekNumber</h3>
+              <code class="signature">ISO8601_GetWeekNumber(DateTime value)</code>
+              <p>Returns the ISO 8601 week number for the given date.</p>
+              <dl class="io-list"><div><dt>Input</dt><dd><code>value</code> · DateTime</dd></div><div><dt>Output</dt><dd><code>WeekNumber</code> · Integer</dd></div></dl>
+            </article>
+
+            <article class="action-item">
+              <div class="action-topline"><span class="action-type">YEAR BOUNDARY</span><span class="action-return">Integer</span></div>
+              <h3>ISO8601_GetLastWeekOfYear</h3>
+              <code class="signature">ISO8601_GetLastWeekOfYear(Integer year)</code>
+              <p>Returns the last ISO 8601 week number in the given year: 52 or 53.</p>
+              <dl class="io-list"><div><dt>Input</dt><dd><code>year</code> · Integer</dd></div><div><dt>Output</dt><dd><code>LastWeekNumber</code> · Integer</dd></div></dl>
+            </article>
+
+            <article class="action-item">
+              <div class="action-topline"><span class="action-type">WEEK START</span><span class="action-return">DateTime</span></div>
+              <h3>ISO8601_GetStartOfWeek</h3>
+              <code class="signature">ISO8601_GetStartOfWeek(Integer year, Integer week_number)</code>
+              <p>Returns the Monday that starts the requested ISO year and week.</p>
+              <dl class="io-list"><div><dt>Inputs</dt><dd><code>year</code>, <code>week_number</code> · Integer</dd></div><div><dt>Output</dt><dd><code>StartDateTime</code> · DateTime</dd></div></dl>
+            </article>
+          </div>
+        </section>
+
+        <section id="week-rules" class="section-block rules-block" aria-labelledby="rules-title">
+          <div class="section-heading">
+            <span class="section-number">03</span>
+            <div><p class="section-kicker">CALENDAR LOGIC</p><h2 id="rules-title">How ISO weeks are counted.</h2></div>
+          </div>
+          <div class="rules-layout">
+            <ul class="rule-list">
+              <li><span class="rule-marker">A</span><span><strong>Weeks start on Monday.</strong> Monday is day one; Sunday is day seven.</span></li>
+              <li><span class="rule-marker">B</span><span><strong>Week 1 contains January 4.</strong> Equivalently, it is the week containing the first Thursday of the year.</span></li>
+              <li><span class="rule-marker">C</span><span><strong>A week-year has 52 or 53 weeks.</strong> The week-year can differ from the calendar year near New Year.</span></li>
+            </ul>
+            <div class="boundary-example">
+              <div class="example-label">YEAR BOUNDARY EXAMPLE</div>
+              <div class="date-row"><span>FRI</span><strong>01</strong><span>JAN 2021</span><b>W53</b></div>
+              <div class="date-row current-week"><span>MON</span><strong>04</strong><span>JAN 2021</span><b>W01</b></div>
+              <p>January 1 belongs to the previous ISO week-year; the new week-year starts on January 4.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="quick-start" class="section-block" aria-labelledby="quick-title">
+          <div class="section-heading">
+            <span class="section-number">04</span>
+            <div><p class="section-kicker">LOCAL DEVELOPMENT</p><h2 id="quick-title">Build and test.</h2></div>
+          </div>
+          <div class="requirements-row">
+            <div><span class="requirement-label">REQUIRED</span><strong>.NET 10 SDK</strong></div>
+            <div><span class="requirement-label">PACKAGE</span><strong>OutSystems.ExternalLibraries.SDK 1.3.2</strong></div>
+          </div>
+          <p class="body-copy">Run these commands from the repository root.</p>
+          <div class="command-block">
+            <div class="command-caption"><span>BUILD THE SOLUTION</span><span>TERMINAL</span></div>
+            <pre><code>dotnet build ISO8601_Helper.sln</code></pre>
+          </div>
+          <div class="command-block">
+            <div class="command-caption"><span>RUN UNIT TESTS</span><span>TERMINAL</span></div>
+            <pre><code>dotnet test ISO8601_Helper.UnitTests/ISO8601_Helper.UnitTests.csproj</code></pre>
+          </div>
+          <p class="test-note"><span aria-hidden="true">34</span> unit tests cover UTC formatting, ISO week boundaries, 52- and 53-week years, and Monday week starts.</p>
+          <div class="example-callout">
+            <div><span class="example-label">QUICK EXAMPLE</span><strong>UTC input → ISO 8601 text</strong></div>
+            <pre><code>var date = new DateTime(2024, 1, 15, 10, 30, 0, DateTimeKind.Utc);
+var text = helper.ISO8601_FormatDateTime(date);
+// 2024-01-15T10:30:00Z</code></pre>
+          </div>
+          <p class="fine-print">The formatter calls <code>DateTime.ToUniversalTime()</code> before writing the <code>Z</code> suffix. For predictable results, pass a UTC DateTime value.</p>
+        </section>
+
+        <section id="publish" class="section-block publish-block" aria-labelledby="publish-title">
+          <div class="section-heading">
+            <span class="section-number">05</span>
+            <div><p class="section-kicker">OUTSYSTEMS DEVELOPER CLOUD</p><h2 id="publish-title">Publish the external library.</h2></div>
+          </div>
+          <ol class="publish-steps">
+            <li><span>1</span><div><strong>Build a Release package.</strong><p>Run <code>dotnet publish</code> for the library project in Release configuration.</p></div></li>
+            <li><span>2</span><div><strong>Create a ZIP archive.</strong><p>Include the published output files in the archive.</p></div></li>
+            <li><span>3</span><div><strong>Upload to ODC.</strong><p>Import the ZIP in the ODC Portal under External Libraries, then use the exposed server actions in your apps and libraries.</p></div></li>
+          </ol>
+          <div class="command-block publish-command">
+            <div class="command-caption"><span>PUBLISH THE LIBRARY</span><span>TERMINAL</span></div>
+            <pre><code>dotnet publish ISO8601_Helper/ISO8601_Helper.csproj -c Release</code></pre>
+          </div>
+          <p class="fine-print">Version-tagged releases are also packaged by the repository's GitHub Actions release workflow.</p>
+        </section>
+
+        <footer class="page-footer">
+          <img src="assets/ISO8601.png" alt="" width="28" height="28">
+          <span>ISO8601 Helper</span>
+          <span class="footer-separator" aria-hidden="true">/</span>
+          <span>OutSystems Developer Cloud</span>
+          <a href="#top">Back to top ↑</a>
+        </footer>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
